@@ -45,13 +45,15 @@ const FlagQuizCard = ({ countriesList }) => {
 
   if (index === -1) {
     return (
-      <div className="flex flex-col justify-center gap-y-3 text-center my-3 bg-purple-700 text-white rounded-lg shadow-lg p-10">
+      <div className="flex flex-col justify-center gap-y-3 text-center my-3 bg-yellow-300 text-white rounded-lg shadow-lg p-10">
         <h2 className="text-3xl">Finished !</h2>
-        <h3 className="text-2xl">
-          Your score: <span className="ml-1 font-bold">{rightAnswers}</span> out
-          of
-          <span className="ml-1 font-bold">{totalAnswers}</span>
-        </h3>
+        <h3 className="text-2xl">Your score</h3>
+        <p className="text-green-500 text-2xl bg-[rgba(255,255,255,0.3)] rounded-md p-1">
+          Right answers: <span className="ml-1 font-bold">{rightAnswers}</span>
+        </p>
+        <p className="text-red-500 text-2xl bg-[rgba(255,255,255,0.3)] rounded-md p-1">
+          Wrong answers: <span className="ml-1 font-bold">{wrongAnswers}</span>
+        </p>
       </div>
     );
   }

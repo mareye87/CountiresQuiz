@@ -11,6 +11,7 @@ const FlagQuizCard = ({ countriesList }) => {
   const [answers, setAnswers] = useState([]);
   const [isSelected, setIsSelected] = useState();
   const [isNext, setIsNext] = useState();
+  const [isBtnDisabled, setIsBtnDisabled] = useState(false);
   let level = 3;
   let selectedAnswer;
 
@@ -86,8 +87,10 @@ const FlagQuizCard = ({ countriesList }) => {
 
             return (
               <button
-                disabled={isSelected}
+                disabled={isBtnDisabled}
                 onClick={(e) => {
+                  setIsBtnDisabled(true);
+                  setIsNext(true);
                   selectedAnswer = e.target;
                   if (answer === rightAnswer) {
                     setRightAnswers(rightAnswers + 1);
@@ -100,7 +103,6 @@ const FlagQuizCard = ({ countriesList }) => {
                       setIsSelected(true);
                     }, 1500);
                   }
-                  setIsNext(true);
                 }}
                 key={answer}
                 className={`${
@@ -122,6 +124,7 @@ const FlagQuizCard = ({ countriesList }) => {
                 setIndex(-1);
                 return;
               }
+              setIsBtnDisabled(false);
               setIsSelected(false);
               setIsNext(false);
               setTotalAnswers(totalAnswers + 1);

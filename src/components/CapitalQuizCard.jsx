@@ -91,7 +91,7 @@ const CapitalQuizCard = ({ countriesList }) => {
 
             return (
               <button
-                disabled={isSelected}
+                disabled={isNext}
                 onClick={(e) => {
                   selectedAnswer = e.target;
                   if (answer === rightAnswer) {
